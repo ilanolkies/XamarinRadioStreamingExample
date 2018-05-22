@@ -1,4 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:StreamingExample" x:Class="StreamingExample.StreamingExamplePage">
-    <Label Text="My first radio streaming app!" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Simple header label -->
+        <Label Grid.Row="0" Grid.Column="0" 
+               Text="My first radio streaming app!" 
+               VerticalOptions="Center" HorizontalOptions="Center" 
+               FontSize="Large"
+               Margin="10" />
+
+        <!-- Use Grid to keep sizing -->
+        <Grid x:Name="Play"
+              Grid.Row="1" Grid.Column="0" IsVisible="true"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="1"
+                   Source="play.png"
+                   VerticalOptions="Center" HorizontalOptions="Center"
+                   Margin="10">
+                
+                <!-- Calls function with name described in Tapped when the image is tapped -->
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Play_tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+
+        <Grid x:Name="PauseStop" 
+              Grid.Row="1" Grid.Column="0" IsVisible="false"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Row="0" Grid.Column="0"
+               Source="pause.png"
+               VerticalOptions="Center" HorizontalOptions="Center"
+               Margin="10">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Pause_tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+            
+            <Image Grid.Row="0" Grid.Column="1"
+               Source="stop.png"
+               VerticalOptions="Center" HorizontalOptions="Center"
+               Margin="10">
+               <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Stop_tapped" />
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </Grid>
 </ContentPage>
