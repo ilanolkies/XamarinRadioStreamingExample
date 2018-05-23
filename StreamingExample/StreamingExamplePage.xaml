@@ -17,8 +17,7 @@
                Margin="10" />
 
         <!-- Use Grid to keep sizing -->
-        <Grid x:Name="Play"
-              Grid.Row="1" Grid.Column="0" IsVisible="true"
+        <Grid Grid.Row="1" Grid.Column="0" IsVisible="{Binding DisplayPlay}"
               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
@@ -41,8 +40,7 @@
             </Image>
         </Grid>
 
-        <Grid x:Name="PauseStop" 
-              Grid.Row="1" Grid.Column="0" IsVisible="false"
+        <Grid Grid.Row="1" Grid.Column="0" IsVisible="{Binding DisplayPauseStop}"
               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
