@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace StreamingExample
 {
@@ -30,16 +31,19 @@ namespace StreamingExample
 
 		public void Play()
 		{
+            DependencyService.Get<IStreaming>().Play();
 			IsPlaying = true;
 		}   
 
 		public void Pause()
 		{
+			DependencyService.Get<IStreaming>().Pause();
 			IsPlaying = false;
 		}
-
+        
         public void Stop()
 		{
+			DependencyService.Get<IStreaming>().Stop();
 			IsPlaying = false;
 		}
     }
